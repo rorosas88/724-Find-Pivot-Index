@@ -2,10 +2,20 @@
 //
 
 #include <iostream>
+#include <vector>
+
+int pivotIndex(std::vector<int>& nums) 
+{
+    return { 0 };
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::vector<int> input{ 0 };
+    int output = 0; 
+
+    output = pivotIndex(input); 
+    std::cout << output << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
