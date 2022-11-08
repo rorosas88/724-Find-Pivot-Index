@@ -4,16 +4,62 @@
 #include <iostream>
 #include <vector>
 
-int pivotIndex(std::vector<int>& nums) 
+int pivotIndex(std::vector<int>& nums)
 {
-    return { 0 };
+
+    bool doesPivotIndexExist = false;
+    bool noSolution = false;
+
+    int input_length = nums.size();
+    int input_index = 0;
+
+    while (!doesPivotIndexExist && !noSolution)
+    {
+        int first_half_sum = 0;
+        int last_half_sum = 0;
+        for (int i = 0; i < input_length; i++)
+        {
+
+            if (i < input_index)
+            {
+                first_half_sum += nums[i];
+            }
+            else if (i == input_index)
+            {
+                0;
+            }
+            else
+            {
+                last_half_sum += nums[i];
+            }
+        }
+        if (first_half_sum == last_half_sum)
+        {
+            doesPivotIndexExist = true;
+        }
+        else if (input_index >= input_length)
+        {
+            noSolution = true;
+        }
+        else
+        {
+            input_index++;
+        }
+    }
+    if (doesPivotIndexExist == true)
+    {
+        return { input_index };
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 int main()
 {
-    std::vector<int> input{ 0 };
+    std::vector<int> input{ 2,1,-1 };
     int output = 0; 
-
     output = pivotIndex(input); 
     std::cout << output << "\n";
 }
